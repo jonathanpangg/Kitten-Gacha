@@ -17,6 +17,7 @@
 		9334836D280206C800EA2722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836C280206C800EA2722 /* LocationManager.swift */; };
 		9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836E28020E9200EA2722 /* ContentViewModel.swift */; };
 		933483732802230A00EA2722 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933483722802230A00EA2722 /* HealthKit.framework */; };
+		933483752802351E00EA2722 /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483742802351E00EA2722 /* RunView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		9334836E28020E9200EA2722 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		933483702802230A00EA2722 /* kittengacha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kittengacha.entitlements; sourceTree = "<group>"; };
 		933483722802230A00EA2722 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		933483742802351E00EA2722 /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				933483702802230A00EA2722 /* kittengacha.entitlements */,
 				9334833B2801E12900EA2722 /* kittengachaApp.swift */,
 				9334836C280206C800EA2722 /* LocationManager.swift */,
+				933483742802351E00EA2722 /* RunView.swift */,
 				9334833D2801E12900EA2722 /* ContentView.swift */,
 				9334836E28020E9200EA2722 /* ContentViewModel.swift */,
 				9334833F2801E12B00EA2722 /* Assets.xcassets */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */,
+				933483752802351E00EA2722 /* RunView.swift in Sources */,
 				9334833E2801E12900EA2722 /* ContentView.swift in Sources */,
 				9334833C2801E12900EA2722 /* kittengachaApp.swift in Sources */,
 				9334836D280206C800EA2722 /* LocationManager.swift in Sources */,
