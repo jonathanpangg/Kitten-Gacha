@@ -15,6 +15,7 @@
 		933483572801E12C00EA2722 /* kittengachaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483562801E12C00EA2722 /* kittengachaUITests.swift */; };
 		933483592801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */; };
 		9334836D280206C800EA2722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836C280206C800EA2722 /* LocationManager.swift */; };
+		C0ABE50D2802189700DFC35F /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ABE50C2802189700DFC35F /* Cats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		933483562801E12C00EA2722 /* kittengachaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITests.swift; sourceTree = "<group>"; };
 		933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9334836C280206C800EA2722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C0ABE50C2802189700DFC35F /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				9334833B2801E12900EA2722 /* kittengachaApp.swift */,
 				9334836C280206C800EA2722 /* LocationManager.swift */,
+				C0ABE50C2802189700DFC35F /* Cats.swift */,
 				9334833D2801E12900EA2722 /* ContentView.swift */,
 				9334833F2801E12B00EA2722 /* Assets.xcassets */,
 				933483412801E12B00EA2722 /* Preview Content */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ABE50D2802189700DFC35F /* Cats.swift in Sources */,
 				9334833E2801E12900EA2722 /* ContentView.swift in Sources */,
 				9334833C2801E12900EA2722 /* kittengachaApp.swift in Sources */,
 				9334836D280206C800EA2722 /* LocationManager.swift in Sources */,

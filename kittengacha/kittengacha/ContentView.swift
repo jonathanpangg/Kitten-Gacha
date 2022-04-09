@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
  
+/*
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
    
@@ -67,6 +68,26 @@ class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
  
+ */
+ 
+struct ContentView: View {
+    @State var test: String = ""
+    @State var pc: String = ""
+    var cat = Cats()
+    
+    var body: some View {
+        
+        VStack {
+            Button("Pull") {
+                test = cat.catPuller()
+                pc = "Your current pity is: " + String(cat.pullCount)
+            }
+            Text(pc)
+            Text(test)
+        }
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
