@@ -11,9 +11,9 @@ import HealthKit
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
-    
+    @State var steps: Double = 0
     func getTodaySteps() {
-        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { print("failed"); return }
+        guard let sampleType = HKCategoryType.quantityType(forIdentifier: .stepCount) else { return }
         
         let startDate = Calendar.current.startOfDay(for: Date())
         let endDate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictEndDate)
@@ -31,9 +31,6 @@ struct ContentView: View {
                         print("here")
                         print(val)
                     }
-                    else {
-                        print("failed")
-                    }
                 }
             }
             
@@ -45,7 +42,7 @@ struct ContentView: View {
         let healthStore = HKHealthStore()
         if HKHealthStore.isHealthDataAvailable() {
             let readData = Set([
-                HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!
+                HKObjectType.quantityType(forIdentifier: .stepCount)!
             ])
             
             healthStore.requestAuthorization(toShare: [], read: readData) { (success, error) in
@@ -65,14 +62,12 @@ struct ContentView: View {
                     
                     let interval = NSDateComponents()
                     interval.minute = 30
-                                        
+                    
                     let endDate = Date()
                                                 
-                    guard let startDate = calendar.date(byAdding: .month, value: -1, to: endDate) else {
-                        fatalError("*** Unable to calculate the start date ***")
-                    }
+                    let startDate = calendar.startOfDay(for: Date())
                                         
-                    guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning) else {
+                    guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) else {
                         fatalError("*** Unable to create a step count type ***")
                     }
      
@@ -95,12 +90,10 @@ struct ContentView: View {
                                 let date = statistics.startDate
                                 //for: E.g. for steps it's HKUnit.count()
                                 let value = quantity.doubleValue(for: HKUnit.count())
-                                print("done")
-                                print(value)
-                                print(date)
-                            }
-                            else {
-                                print("failed")
+                                // print("done")
+                                // print(value)
+                                // print(date)
+                                steps += value
                             }
                         }
                     }
@@ -110,6 +103,8 @@ struct ContentView: View {
                 }
             }
         }
+        
+        print(steps)
     }
 
     var body: some View {
