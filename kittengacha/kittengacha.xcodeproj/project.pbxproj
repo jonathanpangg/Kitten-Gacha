@@ -18,6 +18,10 @@
 		9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836E28020E9200EA2722 /* ContentViewModel.swift */; };
 		933483732802230A00EA2722 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933483722802230A00EA2722 /* HealthKit.framework */; };
 		933483752802351E00EA2722 /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483742802351E00EA2722 /* RunView.swift */; };
+		C0A40DC628023E7300342E13 /* PullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A40DC528023E7300342E13 /* PullView.swift */; };
+		C0A40DC828023E8000342E13 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A40DC728023E8000342E13 /* Cats.swift */; };
+		C0A40DCA28023EC300342E13 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A40DC928023EC300342E13 /* CollectionView.swift */; };
+		C0A40DCC28023ED400342E13 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A40DCB28023ED400342E13 /* Screens.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		933483702802230A00EA2722 /* kittengacha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kittengacha.entitlements; sourceTree = "<group>"; };
 		933483722802230A00EA2722 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		933483742802351E00EA2722 /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
+		C0A40DC528023E7300342E13 /* PullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullView.swift; sourceTree = "<group>"; };
+		C0A40DC728023E8000342E13 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
+		C0A40DC928023EC300342E13 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		C0A40DCB28023ED400342E13 /* Screens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +114,15 @@
 			isa = PBXGroup;
 			children = (
 				933483702802230A00EA2722 /* kittengacha.entitlements */,
+				C0A40DC728023E8000342E13 /* Cats.swift */,
 				9334833B2801E12900EA2722 /* kittengachaApp.swift */,
 				9334836C280206C800EA2722 /* LocationManager.swift */,
 				933483742802351E00EA2722 /* RunView.swift */,
+				C0A40DCB28023ED400342E13 /* Screens.swift */,
+				C0A40DC928023EC300342E13 /* CollectionView.swift */,
 				9334833D2801E12900EA2722 /* ContentView.swift */,
 				9334836E28020E9200EA2722 /* ContentViewModel.swift */,
+				C0A40DC528023E7300342E13 /* PullView.swift */,
 				9334833F2801E12B00EA2722 /* Assets.xcassets */,
 				933483412801E12B00EA2722 /* Preview Content */,
 			);
@@ -281,9 +293,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */,
+				C0A40DC628023E7300342E13 /* PullView.swift in Sources */,
 				933483752802351E00EA2722 /* RunView.swift in Sources */,
 				9334833E2801E12900EA2722 /* ContentView.swift in Sources */,
+				C0A40DC828023E8000342E13 /* Cats.swift in Sources */,
 				9334833C2801E12900EA2722 /* kittengachaApp.swift in Sources */,
+				C0A40DCC28023ED400342E13 /* Screens.swift in Sources */,
+				C0A40DCA28023EC300342E13 /* CollectionView.swift in Sources */,
 				9334836D280206C800EA2722 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
