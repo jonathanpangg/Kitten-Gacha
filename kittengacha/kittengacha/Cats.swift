@@ -21,6 +21,7 @@ class Cats {
     var fourStarList = ["grey cat", "orange cat", "black cat"]
     var fiveStarList = ["Rocco", "Sam"]
     var sixStarList = ["hairless cat"]
+
             
     //pulls a cat for a user
     func catPuller() -> String {

@@ -76,7 +76,7 @@ struct ContentView: View {
     var cat = Cats()
     
     var body: some View {
-        
+
         VStack {
             Button("Pull") {
                 test = cat.catPuller()
@@ -84,6 +84,9 @@ struct ContentView: View {
             }
             Text(pc)
             Text(test)
+            Image(test)
+                .resizable()
+                .scaledToFit()
         }
     }
 }
