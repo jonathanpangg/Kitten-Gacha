@@ -14,6 +14,7 @@
 		9334834D2801E12C00EA2722 /* kittengachaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334834C2801E12C00EA2722 /* kittengachaTests.swift */; };
 		933483572801E12C00EA2722 /* kittengachaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483562801E12C00EA2722 /* kittengachaUITests.swift */; };
 		933483592801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */; };
+		9334836D280206C800EA2722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836C280206C800EA2722 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		933483522801E12C00EA2722 /* kittengachaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kittengachaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		933483562801E12C00EA2722 /* kittengachaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITests.swift; sourceTree = "<group>"; };
 		933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9334836C280206C800EA2722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				9334833B2801E12900EA2722 /* kittengachaApp.swift */,
+				9334836C280206C800EA2722 /* LocationManager.swift */,
 				9334833D2801E12900EA2722 /* ContentView.swift */,
 				9334833F2801E12B00EA2722 /* Assets.xcassets */,
 				933483412801E12B00EA2722 /* Preview Content */,
@@ -259,6 +262,7 @@
 			files = (
 				9334833E2801E12900EA2722 /* ContentView.swift in Sources */,
 				9334833C2801E12900EA2722 /* kittengachaApp.swift in Sources */,
+				9334836D280206C800EA2722 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,8 +421,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kittengacha/Preview Content\"";
+				DEVELOPMENT_TEAM = SSWPD3GCN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -445,8 +452,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kittengacha/Preview Content\"";
+				DEVELOPMENT_TEAM = SSWPD3GCN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
