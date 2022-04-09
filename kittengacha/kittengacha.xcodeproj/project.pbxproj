@@ -15,6 +15,8 @@
 		933483572801E12C00EA2722 /* kittengachaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483562801E12C00EA2722 /* kittengachaUITests.swift */; };
 		933483592801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */; };
 		9334836D280206C800EA2722 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836C280206C800EA2722 /* LocationManager.swift */; };
+		9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9334836E28020E9200EA2722 /* ContentViewModel.swift */; };
+		933483732802230A00EA2722 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933483722802230A00EA2722 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		933483562801E12C00EA2722 /* kittengachaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITests.swift; sourceTree = "<group>"; };
 		933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kittengachaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9334836C280206C800EA2722 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9334836E28020E9200EA2722 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		933483702802230A00EA2722 /* kittengacha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kittengacha.entitlements; sourceTree = "<group>"; };
+		933483722802230A00EA2722 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933483732802230A00EA2722 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,7 @@
 				9334834B2801E12C00EA2722 /* kittengachaTests */,
 				933483552801E12C00EA2722 /* kittengachaUITests */,
 				933483392801E12900EA2722 /* Products */,
+				933483712802230A00EA2722 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,9 +103,11 @@
 		9334833A2801E12900EA2722 /* kittengacha */ = {
 			isa = PBXGroup;
 			children = (
+				933483702802230A00EA2722 /* kittengacha.entitlements */,
 				9334833B2801E12900EA2722 /* kittengachaApp.swift */,
 				9334836C280206C800EA2722 /* LocationManager.swift */,
 				9334833D2801E12900EA2722 /* ContentView.swift */,
+				9334836E28020E9200EA2722 /* ContentViewModel.swift */,
 				9334833F2801E12B00EA2722 /* Assets.xcassets */,
 				933483412801E12B00EA2722 /* Preview Content */,
 			);
@@ -128,6 +137,14 @@
 				933483582801E12C00EA2722 /* kittengachaUITestsLaunchTests.swift */,
 			);
 			path = kittengachaUITests;
+			sourceTree = "<group>";
+		};
+		933483712802230A00EA2722 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				933483722802230A00EA2722 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9334836F28020E9200EA2722 /* ContentViewModel.swift in Sources */,
 				9334833E2801E12900EA2722 /* ContentView.swift in Sources */,
 				9334833C2801E12900EA2722 /* kittengachaApp.swift in Sources */,
 				9334836D280206C800EA2722 /* LocationManager.swift in Sources */,
@@ -418,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kittengacha/kittengacha.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kittengacha/Preview Content\"";
@@ -425,6 +444,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need for steps";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -449,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kittengacha/kittengacha.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"kittengacha/Preview Content\"";
@@ -456,6 +477,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Need for steps";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
