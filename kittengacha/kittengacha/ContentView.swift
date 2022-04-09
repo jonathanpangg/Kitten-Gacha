@@ -71,23 +71,22 @@ class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
  */
  
 struct ContentView: View {
-    @State var test: String = ""
-    @State var pc: String = ""
-    var cat = Cats()
+    @ObservedObject var screenNumber = Screens()
     
     var body: some View {
-
-        VStack {
-            Button("Pull") {
-                test = cat.catPuller()
-                pc = "Your current pity is: " + String(cat.pullCount)
-            }
-            Text(pc)
-            Text(test)
-            Image(test)
-                .resizable()
-                .scaledToFit()
+        switch (screenNumber.screenNumber) {
+            case 0:
+                PullView(screenNumber: screenNumber)
+            default:
+                CollectionView(screenNumber: screenNumber)
         }
+    }
+}
+
+    
+struct SecondView: View {
+    var body: some View {
+        Text("what is going on")
     }
 }
 
