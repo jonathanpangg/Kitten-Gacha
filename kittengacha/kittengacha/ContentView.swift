@@ -6,12 +6,17 @@
 //
  
 import SwiftUI
-import MapKit
-import HealthKit
 
 struct ContentView: View {
+    @ObservedObject var screenNumber = Screens()
+
     var body: some View {
-        RunView()
+        switch (screenNumber.screenNumber) {
+            case 0:
+                PullView(screenNumber: screenNumber)
+            default:
+                CollectionView(screenNumber: screenNumber)
+        }
     }
 }
  
