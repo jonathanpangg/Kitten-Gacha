@@ -51,3 +51,7 @@ func tabView(_ screenNumber: Screens) -> some View {
     .offset(y: UIScreen.main.bounds.height / 96)
     .foregroundColor(Color.black)
 }
+
+class Variables: ObservableObject {
+    @Published var pc: String = ""
+}

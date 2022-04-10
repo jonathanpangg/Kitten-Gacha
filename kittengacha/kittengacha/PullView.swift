@@ -10,10 +10,11 @@ import SwiftUI
 
 struct PullView: View {
     @State var test: String = ""
-    @State var pc: String = ""
+    @ObservedObject var variables = Variables()
     @State var bg: String = ""
     var cat = Cats()
     @ObservedObject var screenNumber: Screens
+    @State var list = [String]()
     
     var body: some View {
         ScrollView {
@@ -25,13 +26,8 @@ struct PullView: View {
                 Spacer()
                 Button("Adopt") {
                     test = cat.catPuller()
-                    pc = "\(cat.pullCount)"
-                    screenNumber.userStats.collection.append(test)
-                    let defaults = UserDefaults.standard
-                    let encoder = JSONEncoder()
-                    if let encodedUser = try? encoder.encode(screenNumber.userStats) {
-                        defaults.set(encodedUser, forKey: "user")
-                    }
+                    variables.pc = "\(cat.pullCount)"
+                    list.append(test)
                 }
                 .padding(.trailing)
             }
@@ -52,7 +48,6 @@ struct PullView: View {
                     .frame(height: 400)
                     .clipped()
                     .listRowInsets(EdgeInsets())
-                        
             }
                 
             Divider()
@@ -65,13 +60,39 @@ struct PullView: View {
 
                 Divider()
 
-                Text("Current Pity: \n" + String(pc))
+                Text("Current Pity: \n" + String(variables.pc))
                     .font(.title2)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 15)
             }
             .padding()
         }
-        tabView(screenNumber)
+        ZStack {
+            Image("clouds")
+                .resizable()
+                .ignoresSafeArea()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 16)
+            HStack(alignment: .center) {
+                Button("Run") {
+                    screenNumber.screenNumber = 3
+                    screenNumber.userStats.collection += list
+                }
+                .padding(.leading, UIScreen.main.bounds.width / 8)
+                Spacer()
+                Button("Pull") {
+                    screenNumber.screenNumber = 0
+                    screenNumber.userStats.collection += list
+                }
+                .padding(.leading, UIScreen.main.bounds.width / 20)
+                Spacer()
+                Button("Collection") {
+                    screenNumber.screenNumber = 1
+                    screenNumber.userStats.collection += list
+                }
+                .padding(.trailing, UIScreen.main.bounds.width / 16)
+            }
+        }
+        .offset(y: UIScreen.main.bounds.height / 96)
+        .foregroundColor(Color.black)
     }
 }
