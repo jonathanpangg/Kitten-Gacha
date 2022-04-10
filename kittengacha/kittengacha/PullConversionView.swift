@@ -12,7 +12,6 @@ import UIKit
 
 
 struct PullConversionView: View {
-    
     @State private var speed: Double = 0
     @State private var isEditing = false
     
@@ -23,8 +22,14 @@ struct PullConversionView: View {
     
     @ObservedObject var screenNumber: Screens
     
+    func testing() {
+        screenNumber.userStats.steps = 9050
+    }
     var body: some View {
         VStack {
+            HStack {
+                Text("\(Int(screenNumber.userStats.steps)) total steps")
+            }
             Spacer()
             if (Int(screenNumber.userStats.steps / 2000 ) == 0) {
                 GifImage("crying")
@@ -52,7 +57,7 @@ struct PullConversionView: View {
                     minimumValueLabel: {
                         Text("0")
                     } maximumValueLabel: {
-                        Text(String(screenNumber.userStats.steps/2000))
+                        Text(String(Int(screenNumber.userStats.steps/2000)))
                     }
                     onEditingChanged: { editing in
                     isEditing = editing
@@ -60,18 +65,23 @@ struct PullConversionView: View {
                 .padding(.leading)
                 .padding(.trailing)
                 
-                Button("Dec") {
-                    screenNumber.userStats.steps -= 2000 * speed
-                }
+                
                     
                 ZStack {
                     Image("button")
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 15)
-                    Text("Convert Steps")
-                        .foregroundColor(.red)
-
+                    Button("Convert Steps") {
+                        screenNumber.userStats.steps -= 2000 * speed
+                        let defaults = UserDefaults.standard
+                        let encoder = JSONEncoder()
+                        if let encodedUser = try? encoder.encode(screenNumber.userStats) {
+                            defaults.set(encodedUser, forKey: "user")
                         }
+                    }
+                    .foregroundColor(.red)
+                }
+                
             
                 .padding(.top)
                 Text(pc)
@@ -81,6 +91,7 @@ struct PullConversionView: View {
                     .scaledToFit()
                 }
             }
-        }
+            tabView(screenNumber)
+        }//´.onAppear(perform: testing)
     }
 }

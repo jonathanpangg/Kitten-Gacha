@@ -99,24 +99,10 @@ struct RunView: View {
                 .onAppear {
                     viewModel.checkIfLocationServicesIsEnabled()
                 }
-            HStack(alignment: .center) {
-                Button("Run") {
-                    screenNumber.screenNumber = 3
-                }
-                .padding(.leading, UIScreen.main.bounds.width / 8)
-                Spacer()
-                Button("Pull") {
-                    screenNumber.screenNumber = 0
-                }
-                .padding(.leading, UIScreen.main.bounds.width / 20)
-                Spacer()
-                Button("Collection") {
-                    screenNumber.screenNumber = 1
-                }
-                .padding(.trailing, UIScreen.main.bounds.width / 16)
-            }
-            .offset(y: UIScreen.main.bounds.height / 96)
-            .foregroundColor(Color.black)
+                .ignoresSafeArea()
+            tabView(screenNumber)
+                .ignoresSafeArea()
+                
         }.onAppear(perform: fetchHealthData)
     }
 }
