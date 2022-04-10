@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "orange cat.png",
+      "filename" : "cat (3) (2).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -19,6 +19,7 @@
     "version" : 1
   },
   "properties" : {
+    "preserves-vector-representation" : true,
     "template-rendering-intent" : "original"
   }
 }
