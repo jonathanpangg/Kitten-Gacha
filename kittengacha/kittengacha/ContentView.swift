@@ -12,10 +12,13 @@ struct ContentView: View {
 
     var body: some View {
         switch (screenNumber.screenNumber) {
-            case 0:
-                PullView(screenNumber: screenNumber)
-            default:
+            case 1:
                 CollectionView(screenNumber: screenNumber)
+            case 2:
+                PullConversionView(screenNumber: screenNumber)
+            default:
+                PullView(screenNumber: screenNumber)
+                
         }
     }
 }

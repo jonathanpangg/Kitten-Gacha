@@ -15,6 +15,11 @@ struct PullView: View {
     @ObservedObject var screenNumber: Screens
     
     var body: some View {
+        HStack {
+            Button("Convert Steps") {
+                screenNumber.screenNumber = 2
+            }
+        }
         VStack {
             Button("Collection") {
                 screenNumber.screenNumber = 1
