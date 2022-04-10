@@ -11,6 +11,7 @@ struct ContentView: View {
     @ObservedObject var screenNumber = Screens()
 
     var body: some View {
+        /*
         switch (screenNumber.screenNumber) {
             case 1:
                 CollectionView(screenNumber: screenNumber)
@@ -20,6 +21,8 @@ struct ContentView: View {
                 PullView(screenNumber: screenNumber)
                 
         }
+        */
+        RunView(screenNumber: screenNumber)
     }
 }
  

@@ -80,21 +80,18 @@ struct RunView: View {
     
     var body: some View {
         VStack {
-            Text("\(screenNumber.userStats.steps)")
+            HStack {
+                Text("\(Int(screenNumber.userStats.steps)) total steps")
+                    .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
+                Spacer()
+            }
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
                 .ignoresSafeArea()
                 .onAppear {
                     viewModel.checkIfLocationServicesIsEnabled()
                 }
             HStack {
-                Button("Press") {
-                    fetchHealthData()
-                }
-                .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
-                Button("Press") {
-                    viewModel.checkIfLocationServicesIsEnabled()
-                }
-                .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
+                
             }
         }.onAppear(perform: fetchHealthData)
     }
