@@ -37,19 +37,21 @@ struct PullView: View {
             Spacer()
             Divider()
             ZStack(alignment: .leading) {
-            Image("background")
+                Image("background")
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .clipped()
                 .listRowInsets(EdgeInsets())
                 Image(test)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 400)
-                    .clipped()
-                    .listRowInsets(EdgeInsets())
+                    .frame(maxWidth: .infinity, minHeight: 15)
+                    .padding(30)
+                    .cornerRadius(10)
+
             }
-                
+            .offset(y: UIScreen.main.bounds.height / -64)
+            
             Divider()
             VStack() {
                 Text(test)
