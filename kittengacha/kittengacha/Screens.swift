@@ -53,5 +53,5 @@ func tabView(_ screenNumber: Screens) -> some View {
 }
 
 class Variables: ObservableObject {
-    @Published var pc: String = ""
+    @Published var pc: String = "0"
 }

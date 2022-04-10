@@ -19,16 +19,29 @@ struct PullView: View {
     var body: some View {
         ScrollView {
             HStack {
-                Button("Get More Adoption") {
+                Button(action: {
                     screenNumber.screenNumber = 2
-                }
-                .padding(.leading)
+                }, label: {
+                    Text("Adoption Credits")
+                        .padding(10)
+                        .background(Color.cyan)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                })
                 Spacer()
-                Button("Adopt") {
+                Button(action: {
                     test = cat.catPuller()
                     variables.pc = "\(cat.pullCount)"
                     list.append(test)
-                }
+                }, label: {
+                    VStack {
+                        Text("Adopt")
+                            .padding(10)
+                            .background(Color.cyan)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(10)
+                    }
+                })
             }
             .foregroundColor(Color.black)
             .padding(.top)
@@ -59,11 +72,12 @@ struct PullView: View {
 //                                .listRowInsets(EdgeInsets())
                         Text(test)
                             .font(.title)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .bold()
                             .frame(maxWidth: .infinity, minHeight: 15)
                             .padding(30)
                             .cornerRadius(10)
+                            .background(.cyan)
                             .overlay(
                                     RoundedRectangle(cornerRadius: 15)
                                     .stroke(lineWidth: 2)
@@ -74,10 +88,17 @@ struct PullView: View {
 
                         Divider()
 
-            Text("Current Pity: \n" + String(variables.pc))
+            Text("Current Pity: \n" + variables.pc)
                             .font(.title2)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 15)
+                            .background(
+                                Image("cloud-vector-background")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipped()
+                                    .listRowInsets(EdgeInsets())
+                            )
             }
         
                 .padding()
