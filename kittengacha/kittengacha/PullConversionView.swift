@@ -81,6 +81,7 @@ struct PullConversionView: View {
                     .scaledToFit()
                 }
             }
+            tabView(screenNumber)
         }
     }
 }
