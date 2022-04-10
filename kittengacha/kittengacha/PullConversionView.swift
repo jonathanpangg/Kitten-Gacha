@@ -22,11 +22,16 @@ struct PullConversionView: View {
     var cat = Cats()
     
     @ObservedObject var screenNumber: Screens
-    
+    func testing() {
+            screenNumber.userStats.steps = 9050
+        }
     var body: some View {
         VStack {
+            HStack {
+                Text("\(Int(screenNumber.userStats.steps)) total steps")
+            }
             Spacer()
-            if (Int(screenNumber.userStats.steps / 2000 ) == 0) {
+            if (Int(screenNumber.userStats.steps / 2000 ) <= 0) {
                 GifImage("crying")
                     .offset(y: UIScreen.main.bounds.height / 4)
                 Text("You do not have enough steps to convert into Paw Prints")
@@ -45,43 +50,41 @@ struct PullConversionView: View {
                         .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 5)
                 }
                 VStack {
-                    Slider(value: $speed, in: 0...screenNumber.userStats.steps/2000 + 1, step: 1) {
+                    Slider(value: $speed, in: 0...screenNumber.userStats.steps/2000, step: 1) {
                         Text("\(speed)")
                             .foregroundColor(isEditing ? .red : .blue)
                     }
                     minimumValueLabel: {
                         Text("0")
                     } maximumValueLabel: {
-                        Text(String(screenNumber.userStats.steps/2000))
+                        Text(String(Int(screenNumber.userStats.steps/2000)))
                     }
                     onEditingChanged: { editing in
-                    isEditing = editing
-                }
-                .padding(.leading)
-                .padding(.trailing)
-                
-                Button("Dec") {
-                    screenNumber.userStats.steps -= 2000 * speed
-                }
-                    
+                        isEditing = editing
+                    }
+                    .padding(.leading)
+                    .padding(.trailing)
+                                
                 ZStack {
                     Image("button")
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 15)
-                    Text("Convert Steps")
-                        .foregroundColor(.red)
-
+                    Button("Convert Steps") {
+                        screenNumber.userStats.steps -= 2000 * speed
+                        let defaults = UserDefaults.standard
+                        let encoder = JSONEncoder()
+                        if let encodedUser = try? encoder.encode(screenNumber.userStats) {
+                            defaults.set(encodedUser, forKey: "user")
                         }
-            
-                .padding(.top)
-                Text(pc)
-                Text(test)
-                Image(test)
-                    .resizable()
-                    .scaledToFit()
+                        speed = 0
+                    }
+                    .foregroundColor(Color.red)
                 }
+                .padding(.top)
+                Text(test)
             }
-            tabView(screenNumber)
         }
+            tabView(screenNumber)
+        }.onAppear(perform: testing)
     }
 }

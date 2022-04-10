@@ -31,7 +31,7 @@ struct PullView: View {
                 }
             }
             .foregroundColor(Color.black)
-            .padding(.top)  
+            .padding(.top)
         Spacer()
         Divider()
         ZStack(alignment: .leading){
