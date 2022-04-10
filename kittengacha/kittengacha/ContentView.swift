@@ -11,18 +11,16 @@ struct ContentView: View {
     @ObservedObject var screenNumber = Screens()
 
     var body: some View {
-        /*
         switch (screenNumber.screenNumber) {
             case 1:
                 CollectionView(screenNumber: screenNumber)
             case 2:
                 PullConversionView(screenNumber: screenNumber)
+            case 3:
+                RunView(screenNumber: screenNumber)
             default:
-                PullView(screenNumber: screenNumber)
-                
+                PullView(screenNumber: screenNumber)       
         }
-        */
-        RunView(screenNumber: screenNumber)
     }
 }
  
