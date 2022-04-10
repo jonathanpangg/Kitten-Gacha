@@ -16,7 +16,7 @@ struct PullView: View {
     @ObservedObject var screenNumber: Screens
     
     var body: some View {
-        ScrollView{
+        ScrollView {
         Button("Adopt") {
             test = cat.catPuller()
             pc = "\(cat.pullCount)"
@@ -25,9 +25,9 @@ struct PullView: View {
         Spacer()
         Divider()
         ZStack(alignment: .leading){
-        Image("background")
-            .resizable()
-            .scaledToFill()
+                    Image("background")
+                        .resizable()
+                        .scaledToFill()
                         .clipped()
                         .listRowInsets(EdgeInsets())
                     Image(test)
@@ -40,12 +40,27 @@ struct PullView: View {
                 }
                 
                 Divider()
-                    VStack() {
+                //.ignoresSafeArea(edges: .top)
+                    ZStack() {
+//                            Image("pity-count-background")
+//                                .resizable()
+//                                .scaledToFit()
+//                                //.clipped()
+//                                .listRowInsets(EdgeInsets())
                         Text(test)
                             .font(.title)
                             .foregroundColor(.black)
                             .bold()
-                        
+                            .frame(maxWidth: .infinity, minHeight: 15)
+                            .padding(30)
+                            .cornerRadius(10)
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 15)
+                                    .stroke(lineWidth: 2)
+                                )
+                    }
+                   // .background(.green)
+                    .offset(y: UIScreen.main.bounds.height / -64)
 
                         Divider()
 
@@ -54,8 +69,9 @@ struct PullView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 15)
             }
+        
                 .padding()
-        }
+        
         ZStack {
             Image("cloud")
                 .resizable()
