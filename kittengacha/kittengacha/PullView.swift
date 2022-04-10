@@ -17,12 +17,9 @@ struct PullView: View {
     
     var body: some View {
         ScrollView{
-        // let pc = "Your current pity is: " + String(cat.pullCount)
-        Button("Collection") {
-            screenNumber.screenNumber = 1
-        }
-        Button("Pull") {
+        Button("Adopt") {
             test = cat.catPuller()
+            pc = "\(cat.pullCount)"
         }
         .padding(.top)
         Spacer()
@@ -52,12 +49,10 @@ struct PullView: View {
 
                         Divider()
 
-                        Text("Current Pity: \n" + String(cat.pullCount))
+                        Text("Current Pity: \n" + String(pc))
                             .font(.title2)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 15)
-                        
-
             }
                 .padding()
         }
