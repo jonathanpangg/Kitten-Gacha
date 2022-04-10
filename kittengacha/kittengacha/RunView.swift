@@ -88,7 +88,6 @@ struct RunView: View {
                 HStack {
                     Text("\(Int(screenNumber.userStats.steps)) total steps")
                         .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
-                        .font(.title2)
                         .padding(.bottom)
                     
                 }

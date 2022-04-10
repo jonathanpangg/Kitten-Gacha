@@ -31,7 +31,7 @@ struct PullConversionView: View {
                 Text("\(Int(screenNumber.userStats.steps)) total steps")
             }
             Spacer()
-            if (Int(screenNumber.userStats.steps / 2000 ) == 0) {
+            if (Int(screenNumber.userStats.steps / 2000 ) <= 0) {
                 GifImage("crying")
                     .offset(y: UIScreen.main.bounds.height / 4)
                 Text("You do not have enough steps to convert into Paw Prints")
@@ -50,7 +50,7 @@ struct PullConversionView: View {
                         .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 5)
                 }
                 VStack {
-                    Slider(value: $speed, in: 0...screenNumber.userStats.steps/2000 + 1, step: 1) {
+                    Slider(value: $speed, in: 0...screenNumber.userStats.steps/2000, step: 1) {
                         Text("\(speed)")
                             .foregroundColor(isEditing ? .red : .blue)
                     }
@@ -78,6 +78,7 @@ struct PullConversionView: View {
                         if let encodedUser = try? encoder.encode(screenNumber.userStats) {
                             defaults.set(encodedUser, forKey: "user")
                         }
+                        speed = 0
                     }
                     .foregroundColor(.red)
                 }
@@ -92,6 +93,6 @@ struct PullConversionView: View {
                 }
             }
             tabView(screenNumber)
-        }//´.onAppear(perform: testing)
+        }// .onAppear(perform: testing)
     }
 }

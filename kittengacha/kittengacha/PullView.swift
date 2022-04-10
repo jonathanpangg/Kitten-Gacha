@@ -26,6 +26,12 @@ struct PullView: View {
                 Button("Adopt") {
                     test = cat.catPuller()
                     pc = "\(cat.pullCount)"
+                    screenNumber.userStats.collection.append(test)
+                    let defaults = UserDefaults.standard
+                    let encoder = JSONEncoder()
+                    if let encodedUser = try? encoder.encode(screenNumber.userStats) {
+                        defaults.set(encodedUser, forKey: "user")
+                    }
                 }
                 .padding(.trailing)
             }
