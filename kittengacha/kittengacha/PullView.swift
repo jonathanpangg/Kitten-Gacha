@@ -11,31 +11,55 @@ import SwiftUI
 struct PullView: View {
     @State var test: String = ""
     @State var pc: String = ""
+    @State var bg: String = ""
     var cat = Cats()
     @ObservedObject var screenNumber: Screens
     
     var body: some View {
-        HStack {
-            Button("Convert Steps") {
-                screenNumber.screenNumber = 2
-            }
+        ScrollView{
+        // let pc = "Your current pity is: " + String(cat.pullCount)
+        Button("Collection") {
+            screenNumber.screenNumber = 1
         }
-        VStack {
-            Button("Collection") {
-                screenNumber.screenNumber = 1
+        Button("Pull") {
+            test = cat.catPuller()
+        }
+        .padding(.top)
+        Spacer()
+        Divider()
+        ZStack(alignment: .leading){
+        Image("background")
+            .resizable()
+            .scaledToFill()
+                        .clipped()
+                        .listRowInsets(EdgeInsets())
+                    Image(test)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 400)
+                        .clipped()
+                        .listRowInsets(EdgeInsets())
+                    
+                }
+                
+                Divider()
+                    VStack() {
+                        Text(test)
+                            .font(.title)
+                            .foregroundColor(.black)
+                            .bold()
+                        
+
+                        Divider()
+
+                        Text("Current Pity: \n" + String(cat.pullCount))
+                            .font(.title2)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 15)
+                        
+
             }
-            Button("Pull") {
-                test = cat.catPuller()
-                pc = "Your current pity is: " + String(cat.pullCount)
-            }
-            .padding(.top)
-            Text(pc)
-            Text(test)
-            Spacer()
-            Image(test)
-                .resizable()
-                .scaledToFit()
-            
+                .padding()
         }
         ZStack {
             Image("cloud")
