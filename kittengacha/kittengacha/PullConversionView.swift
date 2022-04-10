@@ -85,6 +85,6 @@ struct PullConversionView: View {
             }
         }
             tabView(screenNumber)
-        }.onAppear(perform: testing)
+        }// .onAppear(perform: testing)
     }
 }
