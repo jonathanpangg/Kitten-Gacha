@@ -12,7 +12,8 @@ import MapKit
 
 struct RunView: View {
     @StateObject private var viewModel = ContentViewModel()
-    @State var steps: Double = 0
+    @ObservedObject var screenNumber: Screens
+    
     func fetchHealthData() -> Void {
         let healthStore = HKHealthStore()
         if HKHealthStore.isHealthDataAvailable() {
@@ -22,25 +23,21 @@ struct RunView: View {
             
             healthStore.requestAuthorization(toShare: [], read: readData) { (success, error) in
                 if success {
+                    print(screenNumber.userStats.prevLogin)
                     let calendar = NSCalendar.current
                     
-                    var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: NSDate() as Date)
-                    
-                    let offset = (7 + anchorComponents.weekday! - 2) % 7
-                    
-                    anchorComponents.day! -= offset
-                    anchorComponents.hour = 2
+                    let anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: screenNumber.userStats.prevLogin)
                     
                     guard let anchorDate = Calendar.current.date(from: anchorComponents) else {
                         fatalError("*** unable to create a valid date from the given components ***")
                     }
                     
                     let interval = NSDateComponents()
-                    interval.minute = 30
+                    interval.minute = 5
                     
-                    let endDate = Date()
+                    let endDate = screenNumber.userStats.currLogin
                                                 
-                    let startDate = calendar.startOfDay(for: Date())
+                    let startDate = screenNumber.userStats.prevLogin
                                         
                     guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) else {
                         fatalError("*** Unable to create a step count type ***")
@@ -54,16 +51,14 @@ struct RunView: View {
                     
                     query.initialResultsHandler = {
                         query, results, error in
-                        print(results!)
                         guard let statsCollection = results else {
                             fatalError("*** An error occurred while calculating the statistics: \(String(describing: error?.localizedDescription)) ***")
-                            
                         }
                                             
                         statsCollection.enumerateStatistics(from: startDate, to: endDate) { statistics, stop in
                             if let quantity = statistics.sumQuantity() {
                                 let value = quantity.doubleValue(for: HKUnit.count())
-                                steps += value
+                                screenNumber.userStats.steps += value
                             }
                         }
                     }
@@ -73,12 +68,19 @@ struct RunView: View {
                 }
             }
         }
-        
-        print(steps)
+        screenNumber.userStats.prevLogin = screenNumber.userStats.currLogin
+        screenNumber.userStats.currLogin = Date().addingTimeInterval(TimeInterval(-14400))
+        print(screenNumber.userStats.steps)
+        let defaults = UserDefaults.standard
+        let encoder = JSONEncoder()
+        if let encodedUser = try? encoder.encode(screenNumber.userStats) {
+            defaults.set(encodedUser, forKey: "user")
+        }
     }
     
     var body: some View {
         VStack {
+            Text("\(screenNumber.userStats.steps)")
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
                 .ignoresSafeArea()
                 .onAppear {
@@ -94,6 +96,6 @@ struct RunView: View {
                 }
                 .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
             }
-        }
+        }.onAppear(perform: fetchHealthData)
     }
 }
