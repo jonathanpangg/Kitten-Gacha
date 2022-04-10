@@ -11,25 +11,28 @@ import SwiftUI
 struct CollectionView: View {
     @ObservedObject var screenNumber: Screens
   var body: some View {
-    VStack(spacing: -1.0)
-    {
-      HStack(spacing: -1.0)
-      {
-        Tile()
-          .border(Color.red, width: 0.90)
-        Tile()
-          .border(Color.red, width: 0.90)
+      ScrollView {
+          VStack(spacing: -1.0)
+          {
+            HStack(spacing: -1.0)
+            {
+              Tile()
+                .border(Color.red, width: 1.00)
+              Tile()
+                .border(Color.red, width: 1.00)
+            }
+            HStack(spacing: -1.0)
+            {
+              Tile()
+              .border(Color.red, width: 1.00)
+              Tile()
+                .border(Color.red, width: 1.00)
+            }
+            .padding(.bottom, 15)
+          }
+        }
+      tabView(screenNumber)
       }
-      HStack(spacing: -1.0)
-      {
-        Tile()
-        .border(Color.red, width: 0.90)
-        Tile()
-          .border(Color.red, width: 0.90)
-      }
-      .padding(.bottom, 15)
-    }
-  }
 }
 struct Tile : View
 {
