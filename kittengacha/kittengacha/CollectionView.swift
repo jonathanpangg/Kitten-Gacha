@@ -45,7 +45,7 @@ struct CollectionView: View {
         ScrollView {
             VStack(spacing: -1.0) {
                 HStack(spacing: -1.0) {
-                    Tile(name: "hairless cat", num: blackCount)
+                    Tile(name: "hairless cat", num: hairlessCount)
                         .border(Color.black, width: 1.00)
                     Tile(name: "Rocco", num: roccoCount)
                         .border(Color.black, width: 1.00)
