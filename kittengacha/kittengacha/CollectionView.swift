@@ -43,7 +43,21 @@ struct CollectionView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: -1.0) {
+            VStack(spacing: 1.0) {
+                Text("Your Current Collection")
+                    .padding(10)
+                    .font(.title)
+                    .foregroundColor(Color.white)
+                    .background(
+                            RoundedRectangle(cornerRadius: 10.0)
+                                .stroke(lineWidth: 8.0)
+                                .background(.cyan)
+                                .foregroundColor(.white)
+                        
+                    )
+
+                    .padding()
+                
                 HStack(spacing: -1.0) {
                     Tile(name: "hairless cat", num: hairlessCount)
                         .border(Color.black, width: 1.00)
