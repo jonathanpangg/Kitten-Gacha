@@ -33,7 +33,7 @@ struct RunView: View {
                     }
                     
                     let interval = NSDateComponents()
-                    interval.minute = 5
+                    interval.minute = 2
                     
                     let endDate = screenNumber.userStats.currLogin
                                                 
@@ -79,23 +79,44 @@ struct RunView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("\(screenNumber.userStats.steps)")
+        VStack(spacing: 0) {
+            ZStack {
+                Image("clouds")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 16)
+                HStack {
+                    Text("\(Int(screenNumber.userStats.steps)) total steps")
+                        .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
+                        .font(.title2)
+                        .padding(.bottom)
+                    
+                }
+            }
+            
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
                 .ignoresSafeArea()
                 .onAppear {
                     viewModel.checkIfLocationServicesIsEnabled()
                 }
-            HStack {
-                Button("Press") {
-                    fetchHealthData()
+            HStack(alignment: .center) {
+                Button("Run") {
+                    screenNumber.screenNumber = 3
                 }
-                .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
-                Button("Press") {
-                    viewModel.checkIfLocationServicesIsEnabled()
+                .padding(.leading, UIScreen.main.bounds.width / 8)
+                Spacer()
+                Button("Pull") {
+                    screenNumber.screenNumber = 0
                 }
-                .frame(width: UIScreen.main.bounds.width / 5 * 2, height: UIScreen.main.bounds.height / 32)
+                .padding(.leading, UIScreen.main.bounds.width / 20)
+                Spacer()
+                Button("Collection") {
+                    screenNumber.screenNumber = 1
+                }
+                .padding(.trailing, UIScreen.main.bounds.width / 16)
             }
+            .offset(y: UIScreen.main.bounds.height / 96)
+            .foregroundColor(Color.black)
         }.onAppear(perform: fetchHealthData)
     }
 }

@@ -12,7 +12,11 @@ struct CollectionView: View {
     @ObservedObject var screenNumber: Screens
     
     var body: some View {
-        Text("Something")
+        ScrollView(.vertical, showsIndicators: true) {
+            ForEach(0..<screenNumber.userStats.collection.count) { i in
+                Text("\(screenNumber.userStats.collection[i])")
+            }
+        }
         Button("Pull") {
             screenNumber.screenNumber = 0
         }

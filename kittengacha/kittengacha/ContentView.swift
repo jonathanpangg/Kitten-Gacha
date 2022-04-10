@@ -16,9 +16,10 @@ struct ContentView: View {
                 CollectionView(screenNumber: screenNumber)
             case 2:
                 PullConversionView(screenNumber: screenNumber)
+            case 3:
+                RunView(screenNumber: screenNumber)
             default:
-                PullView(screenNumber: screenNumber)
-                
+                PullView(screenNumber: screenNumber)       
         }
     }
 }
