@@ -115,7 +115,7 @@ struct PullView: View {
                 }
                 .padding(.leading, UIScreen.main.bounds.width / 8)
                 Spacer()
-                Button("Pull") {
+                Button("Adopt") {
                     screenNumber.screenNumber = 0
                     screenNumber.userStats.collection += list
                 }

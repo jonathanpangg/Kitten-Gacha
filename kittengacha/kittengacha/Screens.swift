@@ -36,7 +36,7 @@ func tabView(_ screenNumber: Screens) -> some View {
             }
             .padding(.leading, UIScreen.main.bounds.width / 8)
             Spacer()
-            Button("Pull") {
+            Button("Adopt") {
                 screenNumber.screenNumber = 0
             }
             .padding(.leading, UIScreen.main.bounds.width / 20)

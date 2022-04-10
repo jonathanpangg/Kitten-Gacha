@@ -11,5 +11,5 @@ struct UserStats: Codable {
     var steps: Double = 0
     var prevLogin: Date = Date()
     var currLogin: Date = Date()
-    var collection: [String] = ["Something", "size"]
+    var collection: [String] = []
 }

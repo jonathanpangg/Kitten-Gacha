@@ -18,17 +18,18 @@ struct PullConversionView: View {
     
     @State var test: String = ""
     @State var pc: String = ""
-    
+    @State var numPaws = 0
     var cat = Cats()
     
     @ObservedObject var screenNumber: Screens
     func testing() {
-            screenNumber.userStats.steps = 9050
+            screenNumber.userStats.steps = 21050
         }
     var body: some View {
         VStack {
-            HStack {
+            VStack {
                 Text("\(Int(screenNumber.userStats.steps)) total steps")
+                Text("\(Int(numPaws)) total paws")
             }
             Spacer()
             if (Int(screenNumber.userStats.steps / 2000 ) <= 0) {
@@ -42,12 +43,16 @@ struct PullConversionView: View {
                 HStack {
                     Image("foot")
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 15)
+                        .scaledToFit()
+                        .clipped()
+                        .frame(width: 100)
                     Image(systemName: "arrow.forward")
                         .font(.system(size: 56.0))
                     Image("paw print")
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.height / 5)
+                        .scaledToFit()
+                        .clipped()
+                        .frame(width: 100)
                 }
                 VStack {
                     Slider(value: $speed, in: 0...screenNumber.userStats.steps/2000, step: 1) {
@@ -76,15 +81,16 @@ struct PullConversionView: View {
                         if let encodedUser = try? encoder.encode(screenNumber.userStats) {
                             defaults.set(encodedUser, forKey: "user")
                         }
+                        numPaws += Int(speed)
                         speed = 0
                     }
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Color.white)
                 }
                 .padding(.top)
                 Text(test)
             }
         }
             tabView(screenNumber)
-        }// .onAppear(perform: testing)
+        }//.onAppear(perform: testing)
     }
 }

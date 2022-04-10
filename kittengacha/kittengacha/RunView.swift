@@ -111,7 +111,7 @@ struct RunView: View {
                     .padding(.leading, UIScreen.main.bounds.width / 8)
                     .offset(y: UIScreen.main.bounds.height / 80)
                     Spacer()
-                    Button("Pull") {
+                    Button("Adopt") {
                         screenNumber.screenNumber = 0
                     }
                     .padding(.leading, UIScreen.main.bounds.width / 20)
